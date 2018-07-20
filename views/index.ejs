@@ -91,6 +91,10 @@
               fileReader.readAsDataURL(fileToLoad);
             }
           }
+
+          function closeModal() {
+            $('#signupModal').modal('hide');
+          }
         </script>
 
       </div>
@@ -193,7 +197,7 @@
                  
              </div>
              <div class="modal-footer">
-               <button id="signup" type="button" class="btn btn-primary">Correct</button>
+               <button id="signup" type="button" class="btn btn-primary" on-click="closeModal()">Correct</button>
                <button id="signup" type="button" class="btn btn-primary">Edit</button>
              </div>
            </div><!-- /.modal-content -->
