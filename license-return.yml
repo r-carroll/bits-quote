@@ -1,0 +1,77 @@
+swagger: "2.0"
+info:
+  description: "This is the format in which the parsed driver's license data will be returned"
+  version: "1.0.0"
+  title: "License service"
+host: "7auqotnz25.execute-api.us-east-2.amazonaws.com"
+basePath: "/prod/"
+tags:
+- name: "licesne"
+  description: "Data from the driver's license"
+schemes:
+- "https"
+- "http"
+paths:
+  /image:
+    post:
+      tags:
+      - "user"
+      summary: "upload drivers license"
+      description: ""
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            items:
+              $ref: '#/definitions/License'
+definitions:
+  Image:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+        example: "lic"
+      name:
+        type: "string"
+        description: "name of the image, can be anything"
+      image:
+        type: "string"
+        description: "a base64 encoded string value for the image, must be < 100K"
+  License:
+    type: "object"
+    properties:
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      street1:
+        type: "string"
+      street2:
+        type: "string"
+      city:
+        type: "string"
+      state:
+        type: "string"
+      zip:
+        type: "number"
+      licenseNumber:
+        type: "number"
+      dob:
+        type: "string"
+      issueDate:
+        type: "string"
+      expDate:
+        type: "string"
+      gender:
+        type: "string"
