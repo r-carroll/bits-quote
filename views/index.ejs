@@ -93,9 +93,39 @@
           }
 
           function closeModal() {
-            $('#signupModal').modal('hide');
+            let age = 22;
+            $('#signupModal').modal('hide');  
+            $('#isLeased').show("slow", function() {
+              // animation
+            });
+
+            if(age < 25) {
+              $('#isStudent').show("slow", function() {
+              // animation
+            });
+            }
           }
         </script>
+
+        <div id="isLeased" style="visibility: hidden;">
+          Is your vehicle leased?
+          <div class="form-group">
+                  <select id="leased">
+                    <option value="y">Yes</option>
+                    <option value="n">No</option>
+                  </select>
+          </div>
+        </div>
+
+        <div id="isStudent" style="visibility: hidden;">
+          Do you qualify for the good student discount?
+          <div class="form-group">
+                  <select id="student">
+                    <option value="y">Yes</option>
+                    <option value="n">No</option>
+                  </select>
+          </div>
+        </div>
 
       </div>
 
